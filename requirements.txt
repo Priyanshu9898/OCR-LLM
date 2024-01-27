@@ -12,3 +12,4 @@ Pillow
 flask-swagger-ui
 fastapi
 uvicorn
+gunicorn
