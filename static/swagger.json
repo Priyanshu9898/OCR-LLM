@@ -1,0 +1,234 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Aadhar and Passport OCR Backend",
+    "description": "API for processing images of Aadhar Cards and Passports to extract information using OCR.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/aadhar-front/": {
+      "post": {
+        "summary": "Process Front Image of Aadhar Card",
+        "description": "This endpoint processes the front image of an Aadhar card to extract information.",
+        "parameters": [
+          {
+            "name": "uploaded_file",
+            "in": "formData",
+            "description": "The image file of the Aadhar card front.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/AadharFrontResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/aadhar-back/": {
+      "post": {
+        "summary": "Process Back Image of Aadhar Card",
+        "description": "This endpoint processes the back image of an Aadhar card to extract information.",
+        "parameters": [
+          {
+            "name": "uploaded_file",
+            "in": "formData",
+            "description": "The image file of the Aadhar card back.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/AadharBackResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/passport-front/": {
+      "post": {
+        "summary": "Process Front Image of Passport",
+        "description": "This endpoint processes the front image of a Passport to extract information.",
+        "parameters": [
+          {
+            "name": "uploaded_file",
+            "in": "formData",
+            "description": "The image file of the passport front.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/PassportFrontResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/passport-back/": {
+      "post": {
+        "summary": "Process Back Image of Passport",
+        "description": "This endpoint processes the back image of a Passport to extract information.",
+        "parameters": [
+          {
+            "name": "uploaded_file",
+            "in": "formData",
+            "description": "The image file of the passport back.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/PassportBackResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AadharFrontResponse": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        },
+        "Gender": {
+          "type": "string"
+        },
+        "Aadhar_Number": {
+          "type": "string"
+        },
+        "Issue_Date": {
+          "type": "string"
+        }
+      }
+    },
+    "AadharBackResponse": {
+      "type": "object",
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "Print_Date": {
+          "type": "string"
+        }
+      }
+    },
+    "PassportFrontResponse": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "Number": {
+          "type": "string"
+        },
+        "Surname": {
+          "type": "string"
+        },
+        "Given_Name": {
+          "type": "string"
+        },
+        "Nationality": {
+          "type": "string"
+        },
+        "Sex": {
+          "type": "string"
+        },
+        "Date_of_Birth": {
+          "type": "string"
+        },
+        "Place_of_Birth": {
+          "type": "string"
+        },
+        "Date_of_Issue": {
+          "type": "string"
+        },
+        "Date_of_Expiry": {
+          "type": "string"
+        },
+        "Place_of_Issue": {
+          "type": "string"
+        }
+      }
+    },
+    "PassportBackResponse": {
+      "type": "object",
+      "properties": {
+        "Father_Name": {
+          "type": "string"
+        },
+        "Mother_Name": {
+          "type": "string"
+        },
+        "Spouse_Name": {
+          "type": "string"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "Old_Passport_Number": {
+          "type": "string"
+        },
+        "File_Number": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

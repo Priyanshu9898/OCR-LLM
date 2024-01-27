@@ -5,3 +5,10 @@ langchain
 PyPDF2
 chromadb
 faiss-cpu
+flask
+flask-cors
+python-dotenv
+Pillow
+flask-swagger-ui
+fastapi
+uvicorn
