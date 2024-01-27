@@ -21,7 +21,9 @@ app = Flask(__name__)
 allowed_origins = ["http://localhost:3000", "http://127.0.0.1:3000", "https://erphome.azurewebsites.net/auth/login", "https://erphome.azurewebsites.net"]
 
 
-CORS(app, resources={r"/*": {"origins": allowed_origins}})
+# CORS(app, resources={r"/*": {"origins": allowed_origins}})
+# Allow access from all origins
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 SWAGGER_URL = '/swagger'

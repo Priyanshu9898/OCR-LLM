@@ -5,17 +5,11 @@
     "description": "API for processing images of Aadhar Cards and Passports to extract information using OCR.",
     "version": "1.0.0"
   },
-  "host": "localhost:5000",
+  "host": "documentocrbackend.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "multipart/form-data"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["https"],
+  "consumes": ["multipart/form-data"],
+  "produces": ["application/json"],
   "paths": {
     "/aadhar-front/": {
       "post": {
